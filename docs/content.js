@@ -1,0 +1,75 @@
+'use strict';
+const PARTS = [
+ ['Ocular','Es la lente por la que miramos. Amplía la imagen que forma el objetivo.','Lente para mirar y ampliar la imagen.',[303,59]],
+ ['Objetivos','Son las lentes próximas a la muestra. Proporcionan distintos aumentos.','Lentes próximas a la muestra que la amplían.',[236,185]],
+ ['Revólver','Es la pieza giratoria que sostiene los objetivos. Al girarla cambiamos de objetivo y de aumento.','Gira para cambiar de objetivo.',[232,139]],
+ ['Platina','Es la plataforma donde colocamos el portaobjetos con la muestra. Las pinzas lo sujetan.','Sostiene el portaobjetos con la muestra.',[323,237]],
+ ['Macrómetro','Permite un enfoque grueso mediante movimientos amplios de la platina o del tubo, según el modelo. Se usa primero con el objetivo de menor aumento.','Realiza el enfoque grueso.',[135,221]],
+ ['Micrómetro','Permite afinar el enfoque mediante movimientos pequeños y precisos.','Realiza el enfoque fino.',[105,253]],
+ ['Fuente de luz y alimentación','El iluminador proporciona luz y la alimentación suministra la energía necesaria. En el esquema se señala el conjunto situado en la base.','Aporta la luz y la energía para iluminar.',[244,356]],
+ ['Diafragma','Regula la cantidad de luz que llega a la muestra.','Regula cuánta luz llega a la muestra.',[298,291]],
+ ['Condensador','Concentra la luz sobre la muestra. No se utiliza para aumentar la imagen.','Concentra la luz en la muestra.',[253,267]]
+];
+const SHORTS = [
+ ['micro','¿Qué es un microscopio óptico?','Instrumento que utiliza luz y lentes para ampliar la imagen de muestras pequeñas, como células.',['Usa luz y lentes.','Amplía la imagen de una muestra pequeña.']],
+ ...PARTS.map(p=>['micro',`¿Para qué sirve ${p[0].toLowerCase()}?`,p[2],[p[2]]]),
+ ['micro','¿Cómo calculas los aumentos totales?','Multiplico los aumentos del ocular por los del objetivo. Por ejemplo, 10 × 40 = 400 aumentos.',['Multiplicar ocular por objetivo.','Indicar el aumento total.']],
+ ['conceptos','¿Qué es una magnitud?','Una propiedad que se puede medir, como la longitud, la masa o el tiempo.',['Propiedad medible.','Un ejemplo.']],
+ ['conceptos','¿Qué significa medir?','Comparar una magnitud con una unidad de medida elegida como patrón.',['Comparación.','Unidad de medida como patrón.']],
+ ['conversion','¿Para qué sirve un factor de conversión?','Para expresar la misma cantidad en otra unidad, multiplicándola por una fracción de cantidades equivalentes.',['Cambia la unidad, no la cantidad física.','Usa una equivalencia.']],
+ ['conversion','¿Cómo colocas las unidades en un factor?','Pongo abajo la unidad que quiero eliminar y arriba la unidad a la que quiero llegar. Así puedo cancelar las unidades iguales.',['Unidad inicial abajo.','Unidad final arriba.','Cancelar unidades iguales.']],
+ ['conceptos','¿En qué se diferencian capacidad y volumen?','El volumen es el espacio que ocupa un objeto. La capacidad es el volumen máximo que puede contener un recipiente.',['Volumen: espacio ocupado.','Capacidad: máximo que cabe.']],
+ ['experimental','¿Qué es una hipótesis?','Una explicación provisional que se puede poner a prueba mediante observaciones o experimentos.',['Explicación provisional.','Se puede comprobar.']],
+ ['experimental','¿Para qué sirve un protocolo?','Para detallar qué hacer, cómo hacerlo y por qué, de modo que otras personas puedan repetir el experimento.',['Instrucciones detalladas.','Permite repetirlo.']],
+ ['experimental','¿Qué anotas en un cuaderno de trabajo?','El procedimiento, las observaciones, las medidas, los resultados y las incidencias del experimento.',['Observaciones y datos.','Cómo se hizo.','Incidencias.']],
+ ['experimental','¿Por qué se controlan las condiciones de un experimento?','Para que los cambios observados puedan relacionarse con el factor que estudiamos y no con otras diferencias.',['Mantener constantes las otras condiciones.','Relacionar el resultado con el factor estudiado.']],
+ ['experimental','¿Qué mostró el experimento de Redi?','Que las larvas de mosca de la carne procedían de huevos puestos por las moscas y no se originaban espontáneamente en la carne.',['Larvas procedentes de huevos.','Las moscas necesitan acceso a la carne.']],
+ ['campo','¿Qué es el trabajo de campo?','Investigar y recoger observaciones y datos directamente en el medio natural.',['En el medio natural.','Recogida de observaciones y datos.']],
+ ['campo','¿Qué es el muestreo?','Estudiar una parte representativa de una población para obtener información sobre el conjunto.',['Parte de una población.','Debe ser representativa.']],
+ ['campo','¿Qué diferencia el muestreo probabilístico del no probabilístico?','El probabilístico selecciona mediante azar con probabilidades conocidas. En el muestreo aleatorio simple todos los elementos tienen la misma probabilidad. El no probabilístico no utiliza esa selección al azar.',['Selección al azar en el probabilístico.','En el aleatorio simple, igual probabilidad.']],
+ ['campo','¿Para qué sirve seguir animales con un radiocollar?','Para localizar sus movimientos y estudiar su comportamiento, desplazamientos o migraciones.',['Localización.','Movimientos o comportamiento.']]
+];
+// Cada entrada: bloque, pregunta, respuesta correcta, distractores, explicación.
+const RAW_QUIZ = [
+ ['conceptos','¿Cuál de estas propiedades es una magnitud?','La masa',['La belleza','La simpatía'],'La masa se puede medir y expresar con una unidad.'],
+ ['conceptos','Medir significa…','Comparar una magnitud con una unidad patrón',['Adivinar un número','Cambiar un objeto de tamaño'],'Una medida necesita un valor numérico y una unidad.'],
+ ['conceptos','¿Cuál es la unidad de masa del SI?','El kilogramo (kg)',['El gramo (g)','El litro (L)'],'La escalera usa el gramo como referencia práctica, pero la unidad de masa del SI es el kilogramo.'],
+ ['conceptos','¿Cuál es la unidad de temperatura del SI?','El kelvin (K)',['El grado Celsius (°C)','El segundo (s)'],'En el SI la temperatura se expresa en kelvin, aunque usamos mucho los grados Celsius.'],
+ ['conceptos','La densidad relaciona…','Masa y volumen',['Longitud y tiempo','Capacidad y temperatura'],'La densidad es masa dividida entre volumen. Su unidad del SI es kg/m³.'],
+ ['conceptos','La superficie se mide en…','Metros cuadrados (m²)',['Metros (m)','Metros cúbicos (m³)'],'La superficie tiene dos dimensiones y el volumen, tres.'],
+ ['conceptos','¿Cuál es la unidad de tiempo del SI?','El segundo (s)',['La hora (h)','El minuto (min)'],'Minuto y hora son útiles, pero la unidad del SI es el segundo.'],
+ ['conceptos','Un recipiente de 2 L contiene 0,5 L de agua. Su capacidad es…','2 L',['0,5 L','2,5 L'],'La capacidad indica el máximo que puede contener, aunque ahora no esté lleno.'],
+ ['conceptos','¿Qué equivalencia es correcta?','1 dm³ = 1 L',['1 m³ = 1 L','1 cm³ = 1 L'],'También 1 cm³ = 1 mL y 1 m³ = 1000 L.'],
+ ['conversion','¿Por qué un factor de conversión no cambia la cantidad física?','Porque divide cantidades equivalentes y vale 1',['Porque siempre multiplicamos por 10','Porque las unidades no importan'],'100 cm / 1 m vale 1, porque 100 cm y 1 m son la misma longitud.'],
+ ['conversion','Para convertir 7200 s en h, el factor es…','1 h / 3600 s',['3600 s / 1 h','1 h / 60 s'],'Los segundos deben quedar abajo para cancelarse con los segundos iniciales. 7200 / 3600 = 2 h.'],
+ ['conversion','¿Cuántos litros son 2,5 dm³?','2,5 L',['2500 L','0,0025 L'],'1 dm³ = 1 L. No hay que multiplicar por 1000 en este puente.'],
+ ['conversion','¿Cuántos cm³ son 1,34 L?','1340 cm³',['134 000 cm³','1,34 cm³'],'1 L = 1 dm³ = 1000 cm³. Por tanto, 1,34 × 1000 = 1340.'],
+ ['conversion','¿Cuántos m² son 1,2 hm²?','12 000 m²',['120 m²','0,0012 m²'],'De hm² a m² hay dos saltos de ×100. 1,2 × 10 000 = 12 000.'],
+ ['conversion','De m³ a cm³, el factor numérico es…','×1 000 000',['×100','×1000'],'Hay dos saltos cúbicos: m³ a dm³ y dm³ a cm³. 1000 × 1000 = 1 000 000.'],
+ ['conversion','¿Cuál es un factor válido para pasar de metros a centímetros?','100 cm / 1 m',['1 cm / 100 m','100 m / 1 cm'],'Debe expresar una igualdad real y cancelar la unidad inicial.'],
+ ['micro','¿Qué pieza cambia de objetivo al girar?','El revólver',['El ocular','La platina'],'El revólver sostiene los objetivos y permite seleccionarlos.'],
+ ['micro','¿Dónde se coloca el portaobjetos?','En la platina',['En el ocular','En el condensador'],'La platina sostiene el portaobjetos con la muestra.'],
+ ['micro','¿Qué pieza realiza el enfoque grueso?','El macrómetro',['El micrómetro','El diafragma'],'El macrómetro hace movimientos amplios. El micrómetro afina el enfoque.'],
+ ['micro','¿Qué pieza realiza el enfoque fino?','El micrómetro',['El revólver','El macrómetro'],'Hace pequeños movimientos para que la imagen se vea nítida.'],
+ ['micro','¿Qué regula la cantidad de luz?','El diafragma',['La platina','El ocular'],'El diafragma regula el paso de luz hacia la muestra.'],
+ ['micro','¿Qué concentra la luz en la muestra?','El condensador',['El micrómetro','El revólver'],'Concentrar la luz es distinto de regular su cantidad.'],
+ ['micro','Ocular de 10× y objetivo de 40×. Aumento total:','400×',['50×','40×'],'Los aumentos se multiplican: 10 × 40 = 400. No se suman.'],
+ ['micro','Al empezar a observar, conviene usar…','El objetivo de menor aumento',['El objetivo de mayor aumento','El microscopio apagado'],'El menor aumento facilita localizar la muestra. Después se aumenta y se afina con el micrómetro.'],
+ ['experimental','¿Cuál es una hipótesis comprobable?','Con luz, estas semillas crecerán más que sin luz',['Las plantas son bonitas','Esta flor es la mejor'],'Se puede diseñar una comparación y medir el resultado.'],
+ ['experimental','Para estudiar el efecto de la luz, ¿qué cambias?','Solo la luz, manteniendo las demás condiciones iguales',['La luz, el agua y la especie a la vez','La maceta cada día'],'Cambiar varios factores a la vez impide saber cuál produjo el efecto.'],
+ ['experimental','¿Para qué sirve repetir un experimento?','Para comprobar que el resultado es reproducible',['Para obtener siempre la conclusión deseada','Para evitar medir'],'La repetición ayuda a comprobar la fiabilidad y a detectar resultados accidentales.'],
+ ['experimental','Si los resultados contradicen la hipótesis…','La reviso y propongo nuevas comprobaciones',['Cambio los datos','Ignoro los resultados'],'Las conclusiones deben ajustarse a las pruebas.'],
+ ['experimental','En Redi, ¿qué diferencia principal hay entre los frascos?','El acceso de las moscas a la carne',['La procedencia de la carne','El tamaño del frasco'],'La carne y las condiciones se mantienen comparables. Cambia la cobertura.'],
+ ['experimental','¿Por qué es importante el frasco con gasa?','Deja pasar aire pero impide que las moscas toquen la carne',['Impide que entre aire','Evita toda descomposición'],'Permite distinguir el efecto del aire del acceso de las moscas.'],
+ ['experimental','Las larvas de mosca aparecen en la carne del frasco…','Abierto',['Cerrado herméticamente','Cubierto con gasa'],'Las moscas pueden llegar a la carne del frasco abierto y poner huevos.'],
+ ['experimental','Un protocolo debe incluir…','Materiales y pasos detallados para repetir el trabajo',['Solo la conclusión','Solo una fotografía'],'También debe aclarar las condiciones y cómo se registrarán los datos.'],
+ ['campo','Una muestra representativa…','Refleja adecuadamente las características de la población',['Siempre es el primer individuo encontrado','Debe ser el ejemplar más grande'],'Una muestra sesgada puede conducir a conclusiones equivocadas.'],
+ ['campo','¿Qué instrumento permite capturar pequeños invertebrados por aspiración?','El aspirador entomológico',['La red','La trampa de caída'],'Es un instrumento específico. No se aspiran animales con la boca sin un dispositivo seguro.'],
+ ['campo','¿Qué sirve para capturar invertebrados terrestres que caminan?','Una trampa de caída',['Un ocular','Un termómetro'],'Consiste en un recipiente colocado en el suelo. El muestreo debe minimizar el daño.'],
+ ['campo','¿Qué ventaja tiene el trabajo de campo?','Observa los fenómenos en su medio natural',['Controla siempre todos los factores','No necesita registrar datos'],'Su inconveniente es que hay menos control sobre las condiciones.'],
+ ['campo','¿Qué instrumento mide el tiempo transcurrido?','Un cronómetro',['Unos prismáticos','Una cámara'],'Los prismáticos ayudan a observar a distancia y la cámara a documentar.'],
+ ['campo','Se marcan 15 peces. Después se capturan 20 y 12 están marcados. ¿Estimación del total?','25 peces',['47 peces','300 peces'],'N ≈ 15 × 20 / 12 = 25. Es una estimación que supone mezcla de los marcados y población aproximadamente estable.']
+];
+const QUIZ=RAW_QUIZ.map((q,i)=>({id:'q'+i,group:q[0],q:q[1],correct:q[2],options:[q[2],...q[3]],why:q[4]}));
+const MAGNITUDES=[['Longitud','metro','m'],['Superficie','metro cuadrado','m²'],['Volumen','metro cúbico','m³'],['Masa','kilogramo','kg'],['Densidad','kilogramo por metro cúbico','kg/m³'],['Tiempo','segundo','s'],['Temperatura','kelvin','K'],['Capacidad','litro (unidad aceptada para uso con el SI)','L']];
+const STEPS=['Observación y pregunta','Hipótesis comprobable','Diseño del experimento y protocolo','Experimentación y registro de datos','Análisis de resultados','Conclusiones y comunicación'];
