@@ -41,3 +41,7 @@ Para añadir otros temas conviene conservar esta versión como Tema 1 y añadir 
 ## Refuerzo del movimiento de la coma
 
 La zona 01 comienza por el valor posicional y el cálculo con potencias de diez. Incluye 9 ejemplos con pasos a demanda y 32 ejercicios en cuatro niveles, desde multiplicar o dividir entre 10 hasta aplicarlo a superficie y volumen. Cada ejercicio comprueba dirección, número de lugares y resultado; muestra soluciones razonadas y guarda los intentos con identificadores propios. `docs/decimals.js` contiene esta ampliación. Los identificadores y respuestas anteriores se conservan.
+
+## Factores de conversión visuales
+
+La zona 02 empieza mostrando el mismo objeto con dos etiquetas de medida. Incluye cuatro equivalencias, ocho situaciones de un factor, un recorrido guiado de seis pasos y ejercicios que separan equivalencia, orientación, predicción y cálculo. Las unidades se distinguen por color y texto y se tachan de forma progresiva. El encadenamiento de factores se introduce después. Las transiciones respetan la preferencia de reducir movimiento. La ampliación está en `docs/factors-visual.js` y conserva el progreso previo.
