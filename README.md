@@ -37,3 +37,7 @@ Se aclara que el litro es una unidad aceptada para uso con el SI, mientras que e
 - `docs/icon.svg`: icono.
 
 Para añadir otros temas conviene conservar esta versión como Tema 1 y añadir nuevas secciones con claves de progreso independientes.
+
+## Refuerzo del movimiento de la coma
+
+La zona 01 comienza por el valor posicional y el cálculo con potencias de diez. Incluye 9 ejemplos con pasos a demanda y 32 ejercicios en cuatro niveles, desde multiplicar o dividir entre 10 hasta aplicarlo a superficie y volumen. Cada ejercicio comprueba dirección, número de lugares y resultado; muestra soluciones razonadas y guarda los intentos con identificadores propios. `docs/decimals.js` contiene esta ampliación. Los identificadores y respuestas anteriores se conservan.
