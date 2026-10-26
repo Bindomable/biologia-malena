@@ -27,7 +27,18 @@ const SHORTS = [
  ['campo','¿Qué es el trabajo de campo?','Investigar y recoger observaciones y datos directamente en el medio natural.',['En el medio natural.','Recogida de observaciones y datos.']],
  ['campo','¿Qué es el muestreo?','Estudiar una parte representativa de una población para obtener información sobre el conjunto.',['Parte de una población.','Debe ser representativa.']],
  ['campo','¿Qué diferencia el muestreo probabilístico del no probabilístico?','El probabilístico selecciona mediante azar con probabilidades conocidas. En el muestreo aleatorio simple todos los elementos tienen la misma probabilidad. El no probabilístico no utiliza esa selección al azar.',['Selección al azar en el probabilístico.','En el aleatorio simple, igual probabilidad.']],
- ['campo','¿Para qué sirve seguir animales con un radiocollar?','Para localizar sus movimientos y estudiar su comportamiento, desplazamientos o migraciones.',['Localización.','Movimientos o comportamiento.']]
+ ['campo','¿Para qué sirve seguir animales con un radiocollar?','Para localizar sus movimientos y estudiar su comportamiento, desplazamientos o migraciones.',['Localización.','Movimientos o comportamiento.']],
+ ['laboratorio','¿Qué es un laboratorio?','Un lugar equipado con aparatos e instrumentos para realizar experimentos en condiciones ambientales que se pueden controlar.',['Aparatos e instrumentos.','Experimentos con condiciones controlables.']],
+ ['laboratorio','¿Qué materiales utiliza el ensayo de suelo de la presentación?','Dos placas de Petri, dos muestras de suelo, una pipeta y agua oxigenada.',['Placas de Petri y muestras.','Pipeta y agua oxigenada.']],
+ ['laboratorio','¿Por qué se añade la misma cantidad de agua oxigenada a cada muestra?','Para comparar las muestras sin que una dosis diferente sea la causa de una diferencia en el burbujeo.',['Misma dosis.','Comparación justa.']],
+ ['laboratorio','¿Cómo se interpreta el burbujeo en la actividad de suelo?','En esta actividad, la efervescencia se toma como indicio de materia orgánica. Con condiciones comparables, más burbujeo se interpreta como mayor presencia.',['Indicio de materia orgánica en este ensayo.','Comparar en las mismas condiciones.']],
+ ['laboratorio','¿Por qué se lee la etiqueta de un producto?','Para identificarlo y conocer sus advertencias antes de utilizarlo.',['Identificar el producto.','Conocer advertencias.']],
+ ['laboratorio','¿Por qué no se devuelven los sobrantes a su frasco original?','Porque pueden contaminar el producto que queda en el frasco y alterar otros experimentos.',['Evitar contaminación.','Conservar el producto original.']],
+ ['laboratorio','¿Qué debes hacer si se rompe un instrumento o hay un accidente?','Avisar inmediatamente al profesor o responsable y seguir sus instrucciones, sin manipular por mi cuenta el material roto.',['Avisar al responsable.','Seguir sus instrucciones.']],
+ ['laboratorio','¿Las observaciones en laboratorio siempre tienen menos errores que en el campo?','El laboratorio facilita controlar condiciones y repetir medidas, pero también puede haber errores de medida o de procedimiento.',['Mayor control en el laboratorio.','También puede haber errores.']],
+ ['experimental','¿Cómo se realiza un trabajo experimental?','Se diseña una prueba para comprobar una hipótesis, se controlan las condiciones, se sigue un protocolo y se registran los datos para analizarlos y obtener conclusiones.',['Hipótesis y diseño.','Protocolo y control de condiciones.','Registro, análisis y conclusiones.']],
+ ['laboratorio','¿Cómo puedes reducir los errores de un experimento?','Siguiendo el protocolo, usando bien los instrumentos, manteniendo comparables las condiciones, repitiendo medidas y anotando los datos y las incidencias.',['Protocolo e instrumentos.','Condiciones comparables.','Repetir y registrar.']]
+
 ];
 // Cada entrada: bloque, pregunta, respuesta correcta, distractores, explicación.
 const RAW_QUIZ = [
@@ -68,8 +79,39 @@ const RAW_QUIZ = [
  ['campo','¿Qué sirve para capturar invertebrados terrestres que caminan?','Una trampa de caída',['Un ocular','Un termómetro'],'Consiste en un recipiente colocado en el suelo. El muestreo debe minimizar el daño.'],
  ['campo','¿Qué ventaja tiene el trabajo de campo?','Observa los fenómenos en su medio natural',['Controla siempre todos los factores','No necesita registrar datos'],'Su inconveniente es que hay menos control sobre las condiciones.'],
  ['campo','¿Qué instrumento mide el tiempo transcurrido?','Un cronómetro',['Unos prismáticos','Una cámara'],'Los prismáticos ayudan a observar a distancia y la cámara a documentar.'],
- ['campo','Se marcan 15 peces. Después se capturan 20 y 12 están marcados. ¿Estimación del total?','25 peces',['47 peces','300 peces'],'N ≈ 15 × 20 / 12 = 25. Es una estimación que supone mezcla de los marcados y población aproximadamente estable.']
+ ['campo','Se marcan 15 peces. Después se capturan 20 y 12 están marcados. ¿Estimación del total?','25 peces',['47 peces','300 peces'],'N ≈ 15 × 20 / 12 = 25. Es una estimación que supone mezcla de los marcados y población aproximadamente estable.'],
+ ['laboratorio','Un laboratorio permite…','Realizar experimentos con condiciones ambientales controlables',['Evitar cualquier error sin medir','Obtener siempre la hipótesis deseada'],'Dispone de instrumentos y facilita controlar factores como la temperatura o la humedad.'],
+ ['laboratorio','¿Qué instrumento se usa para añadir 2 mL en la actividad de suelo?','Una pipeta',['Unos prismáticos','Un cronómetro'],'La pipeta permite medir y transferir pequeñas cantidades de líquido. Nunca se pipetea con la boca.'],
+ ['laboratorio','¿Dónde se colocan las muestras de suelo de la actividad?','En dos placas de Petri',['En el ocular','Sobre la mesa sin recipiente'],'Se coloca una muestra en cada placa para observar y comparar la reacción.'],
+ ['laboratorio','Si una muestra recibe 2 mL y la otra 5 mL, ¿la comparación es adecuada?','No: también está cambiando la dosis de reactivo',['Sí: solo importa el color del suelo','Sí: siempre gana la que tenga más burbujas'],'Para comparar los suelos, usamos la misma dosis y condiciones comparables.'],
+ ['laboratorio','Según el ensayo de la presentación, más efervescencia indica…','Un indicio de mayor presencia de materia orgánica',['La masa exacta de materia orgánica','La ausencia de materia orgánica'],'Es una interpretación cualitativa de esta actividad. El burbujeo no proporciona por sí solo un porcentaje exacto.'],
+ ['laboratorio','Antes de utilizar un producto, debes…','Leer su etiqueta y sus advertencias',['Olerlo directamente para reconocerlo','Probar una gota'],'La etiqueta permite identificar el producto y conocer los riesgos y las instrucciones.'],
+ ['laboratorio','¿Por qué no se come ni se bebe en el laboratorio?','Para evitar ingerir sustancias o contaminarse',['Para que no se gasten las pipetas','Porque cambiaría siempre la temperatura'],'La comida o las manos podrían contaminarse con productos del laboratorio.'],
+ ['laboratorio','Si no conoces un aparato, debes…','Preguntar al profesor antes de utilizarlo',['Probar botones hasta que funcione','Usarlo deprisa para acabar antes'],'Primero hay que conocer su funcionamiento y las normas de seguridad.'],
+ ['laboratorio','Si sobra producto, debes…','Seguir las indicaciones del profesor para gestionarlo',['Devolverlo al frasco original','Verterlo siempre al desagüe'],'No se devuelve al frasco de origen: podría contaminarlo. Los residuos se gestionan según el producto.'],
+ ['laboratorio','Si se rompe una placa de vidrio…','Aviso al responsable y no recojo los fragmentos con la mano',['La escondo para evitar una sanción','La uso aunque tenga bordes rotos'],'El material roto puede causar cortes. Es necesario avisar para retirarlo de forma adecuada.'],
+ ['laboratorio','¿Qué ayuda a reducir errores al comparar dos suelos?','Cantidades de suelo comparables, la misma dosis y el mismo tiempo de observación',['Cambiar todos los factores a la vez','Anotar solo el resultado esperado'],'Mantener comparables las condiciones ayuda a interpretar las diferencias entre muestras.'],
+ ['laboratorio','¿Qué afirmación sobre laboratorio y campo es correcta?','El laboratorio facilita el control, pero ambos pueden presentar errores',['En laboratorio nunca hay errores','En el campo no se puede hacer ciencia'],'Los instrumentos, el muestreo y el procedimiento pueden introducir errores en ambos contextos.'],
+ ['laboratorio','Si un producto salpica la piel, debes…','Avisar al responsable y lavar la zona con agua abundante siguiendo sus instrucciones',['Ocultarlo y seguir trabajando','Mezclar otro producto para neutralizarlo'],'Hay que actuar según las normas del laboratorio y el producto, sin improvisar tratamientos.'],
+ ['laboratorio','¿Para qué sirven una bata y una mesa despejada?','Para proteger la ropa y evitar contaminación, tropiezos o derrames',['Para aumentar los resultados del experimento','Para no tener que leer el protocolo'],'La seguridad depende tanto de la protección como del orden y del manejo correcto del material.']
+
 ];
 const QUIZ=RAW_QUIZ.map((q,i)=>({id:'q'+i,group:q[0],q:q[1],correct:q[2],options:[q[2],...q[3]],why:q[4]}));
 const MAGNITUDES=[['Longitud','metro','m'],['Superficie','metro cuadrado','m²'],['Volumen','metro cúbico','m³'],['Masa','kilogramo','kg'],['Densidad','kilogramo por metro cúbico','kg/m³'],['Tiempo','segundo','s'],['Temperatura','kelvin','K'],['Capacidad','litro (unidad aceptada para uso con el SI)','L']];
 const STEPS=['Observación y pregunta','Hipótesis comprobable','Diseño del experimento y protocolo','Experimentación y registro de datos','Análisis de resultados','Conclusiones y comunicación'];
+
+const LAB_SAFETY = [
+ ['Cuida tu zona y tu material','Cada estudiante o grupo es responsable de su espacio. Así se evitan pérdidas, daños y confusiones.'],
+ ['No comas, bebas ni ingieras productos','Evita que sustancias del laboratorio entren en el organismo.'],
+ ['Usa bata y sigue la protección indicada','La bata protege la ropa. El profesor indicará si hacen falta gafas, guantes u otra protección.'],
+ ['Deja abrigos y objetos personales fuera de la mesa','Una mesa despejada reduce derrames, contaminación y caídas de material.'],
+ ['Evita prendas u objetos que dificulten el movimiento','Bufandas, pañuelos y otros elementos sueltos pueden engancharse o interferir con el trabajo.'],
+ ['Evita desplazamientos innecesarios','Moverse sin necesidad aumenta el riesgo de choques, tropiezos y derrames.'],
+ ['Ten las manos limpias y secas','Ayuda a evitar contaminación y a sujetar con seguridad los instrumentos.'],
+ ['Lee etiquetas y símbolos de advertencia','Comprueba qué producto vas a utilizar y conoce sus riesgos antes de empezar.'],
+ ['Conoce los instrumentos antes de usarlos','Si desconoces su funcionamiento o seguridad, pregunta al profesor. Nunca pipetees con la boca.'],
+ ['Maneja con cuidado el material frágil','Una rotura puede causar heridas. Avisa si encuentras material roto o averiado.'],
+ ['Actúa ante salpicaduras y accidentes','Avisa inmediatamente al responsable. Ante una salpicadura en la piel, lava con agua abundante y sigue sus instrucciones.'],
+ ['No devuelvas sobrantes al frasco de origen','Podrían contaminar el producto. Gestiona los residuos como indique el profesor.'],
+ ['Ante cualquier duda, pregunta','No improvises mezclas, reparaciones ni procedimientos.']
+];

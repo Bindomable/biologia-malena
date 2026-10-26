@@ -16,11 +16,15 @@ No requiere comandos de compilación ni GitHub Actions propios. También puede p
 
 Se guarda en `localStorage` con la clave `biolab-tema1-v1`. No se envían respuestas a ningún servidor. El progreso pertenece al navegador y al origen web, por lo que no se comparte entre dispositivos, navegación privada, archivos locales y la versión publicada. En **Mi cuaderno** se puede descargar/restaurar una copia JSON y borrar el progreso. Las respuestas libres se guardan automáticamente y se autoevalúan con modelos e ideas esenciales. No se corrigen automáticamente ni puntúan como aciertos.
 
-El banco incluye 38 preguntas razonadas, 11 conversiones basadas en los materiales, ejercicios aleatorios de las cinco escaleras, nueve piezas del microscopio y respuestas breves. Las preguntas falladas de cuestionario tienen prioridad al repetir. Los ejercicios numéricos muestran su solución y quedan contabilizados para repaso si se pide la respuesta. Se admiten coma y punto decimal, sin separadores de miles.
+El banco incluye 52 preguntas razonadas, 11 conversiones basadas en los materiales, ejercicios aleatorios de las cinco escaleras, nueve piezas del microscopio y 35 respuestas breves. Las preguntas falladas de cuestionario tienen prioridad al repetir. Los ejercicios numéricos muestran su solución y quedan contabilizados para repaso si se pide la respuesta. Se admiten coma y punto decimal, sin separadores de miles.
+
+## Actualización del punto 2.2
+
+El bloque 04 incluye una introducción explícita al punto 2 y el apartado 2.2 de laboratorio: ensayo virtual de suelo, normas de seguridad con sus motivos, preguntas y respuestas breves. Los resultados de la simulación son ficticios y cualitativos. Se conservan los identificadores anteriores y la clave de progreso.
 
 ## Materiales y precisión
 
-Basado en la presentación local `Biologia 1.pptx` (cuatro imágenes de páginas del tema) y en las fotografías de los apuntes de factores y escalera de conversión. El juego transforma el contenido en explicaciones y actividades propias. No publica las fotografías personales ni las páginas escaneadas.
+Basado en la presentación local `Biologia 1.pptx` (cinco imágenes de páginas del tema) y en las fotografías de los apuntes de factores y escalera de conversión. El juego transforma el contenido en explicaciones y actividades propias. No publica las fotografías personales ni las páginas escaneadas.
 
 Se aclara que el litro es una unidad aceptada para uso con el SI, mientras que el metro cúbico es su unidad de volumen. La unidad de masa del SI es el kilogramo. Se distingue muestreo probabilístico de su caso aleatorio simple con igual probabilidad. En Redi se consideran larvas de mosca sobre la carne: puede haber huevos o larvas sobre la gasa. Las explicaciones de variables, fases del método y práctica de enfoque amplían didácticamente los materiales.
 
