@@ -45,3 +45,11 @@ La zona 01 comienza por el valor posicional y el cálculo con potencias de diez.
 ## Factores de conversión visuales
 
 La zona 02 empieza mostrando el mismo objeto con dos etiquetas de medida. Incluye cuatro equivalencias, ocho situaciones de un factor, un recorrido guiado de seis pasos y ejercicios que separan equivalencia, orientación, predicción y cálculo. Las unidades se distinguen por color y texto y se tachan de forma progresiva. El encadenamiento de factores se introduce después. Las transiciones respetan la preferencia de reducir movimiento. La ampliación está en `docs/factors-visual.js` y conserva el progreso previo.
+
+## Tema 2: geosfera, minerales y rocas (17/11/2026)
+
+Acceso desde Inicio y desde «Tema 2 · Geosfera». `docs/geology.js` contiene siete bloques de teoría y 91 preguntas, con correspondencia explícita a las siete fotos locales `Biologia_minerales1.jpeg`–`Biologia_minerales7.jpeg`. Orden de estudio: fotos 1, 2, 3, 4, 5, 7 y 6. No se añaden respuestas a las actividades de investigación externa ni tipos de rocas ausentes de las fotos. Se conserva como formulación del libro su recuadro de excepciones sobre petróleo y carbón.
+
+Cada bloque permite estudiar, recordar una explicación antes de desplegar su modelo y practicar hasta ocho preguntas. El reto selecciona dos preguntas de cada bloque (14 en total); la repetición vuelve a seleccionar del banco. Incluye repaso de los últimos fallos y respuestas barajadas. Cada acierto suma cinco puntos al cuaderno existente; se conservan los datos previos, la exportación y la restauración. Las fotos originales no se publican.
+
+Validación: sintaxis de los cinco scripts; integridad de las 91 preguntas (IDs únicos, opciones distintas y una respuesta correcta); simulación de navegación de los siete bloques, reto completo 14/14 con 70 puntos, bloqueo de doble puntuación, repetición y persistencia local. No se ha realizado una comprobación visual en navegador.
