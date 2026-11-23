@@ -1,5 +1,5 @@
 'use strict';
-// Fuente exclusiva: Biologia_minerales1–7.jpeg. Los números remiten a las fotos.
+// Fuente: las nueve fotos de los apuntes de geosfera. Los números remiten a las fotos.
 const GEO_TOPICS = [
  {title:'El origen de la Tierra',source:1,icon:'🌍',intro:'De los materiales de una nebulosa a un planeta con capas.',cards:[
  ['Una historia en seis pasos','Hace 4600 millones de años se originó el Sol en una nebulosa. A su alrededor se formó un remolino de materiales. Estos chocaron y formaron cuerpos mayores: los planetesimales. Su acreción dio origen a los planetas. La Tierra primitiva tenía gran actividad volcánica por su calor interno. Al enfriarse, los materiales más densos, como el hierro, quedaron en el interior por la gravedad. El interior terrestre sigue muy caliente.'],
@@ -33,7 +33,21 @@ const GEO_TOPICS = [
  ['Ígneas o magmáticas','Se forman al enfriarse y solidificarse el magma: minerales fundidos mezclados con gases y agua.'],
  ['Volcánicas o extrusivas','El magma sale al exterior como lava, que se enfría rápidamente y cristaliza mal. Algunas tienen oquedades originadas por gases. Ejemplos: obsidiana, pumita o piedra pómez y basalto.'],
  ['Plutónicas o intrusivas','El magma se enfría lentamente en el interior de la corteza. Están bien cristalizadas y se ven mejor sus cristales. Ejemplos: granito, sienita y gabro. Las filonianas se forman al solidificarse magma en grietas, formando diques o filones.'],
- ['Metamórficas','Proceden de otras rocas modificadas por elevada presión y altas temperaturas. El proceso se llama metamorfismo. Foliadas: pizarra, esquisto, gneis y migmatita. No foliadas: mármol y cuarcita. La foliación es una organización en láminas aproximadamente paralelas.']],recall:'Compara una roca volcánica con una plutónica.',model:'Volcánica: enfriamiento rápido de lava en el exterior, mala cristalización. Plutónica: enfriamiento lento del magma en el interior, buena cristalización.'}
+ ['Metamórficas','Proceden de otras rocas modificadas por elevada presión y altas temperaturas. El proceso se llama metamorfismo. Foliadas: pizarra, esquisto, gneis y migmatita. No foliadas: mármol y cuarcita. La foliación es una organización en láminas aproximadamente paralelas.']],recall:'Compara una roca volcánica con una plutónica.',model:'Volcánica: enfriamiento rápido de lava en el exterior, mala cristalización. Plutónica: enfriamiento lento del magma en el interior, buena cristalización.'},
+ {title:'Rocas sedimentarias',source:9,icon:'▤',intro:'Sigue el camino de los sedimentos y distingue los dos tipos de rocas sedimentarias.',cards:[
+ ['De dónde vienen los sedimentos','El agua y el viento transportan materiales, como fragmentos de rocas y materia orgánica. Cuando se depositan, los sedimentos se acumulan en una cuenca sedimentaria.','litificacion'],
+ ['Litificación o diagénesis','Primero se acumulan los sedimentos. Después, el peso de las capas superiores reduce su volumen y sale agua: es la compactación. Finalmente, unos cristales ocupan espacios entre los granos y los unen como un cemento: es la cementación.'],
+ ['Cómo se puede formar un fósil','Una concha, un hueso, una semilla o una huella pueden quedar entre los sedimentos. Cuando estos se convierten en roca, esos restos o huellas pueden conservarse como fósiles.'],
+ ['Detríticas · fragmentos de otras rocas','Los conglomerados tienen fragmentos de más de 2 mm. Las areniscas están hechas de granos de arena de menos de 2 mm. Las partículas de la arcilla son tan finas que se distinguen al microscopio.','detriticas'],
+ ['No detríticas · otros orígenes','Pueden proceder de esqueletos de seres vivos marinos, de sales minerales o de restos orgánicos que no se han descompuesto por completo. En la foto aparecen la caliza, el yeso y el carbón.','no-detriticas']
+ ],recall:'¿Cómo se convierten unos sedimentos sueltos en una roca sedimentaria?',model:'Se acumulan, se compactan por el peso de las capas de encima y los cristales cementan los granos.'},
+ {title:'El ciclo de las rocas',source:8,icon:'↻',intro:'Una roca puede convertirse en otra siguiendo distintos caminos. El ciclo también se llama ciclo litológico.',cards:[
+ ['Sigue las flechas del ciclo','Busca primero los sedimentos, la roca sedimentaria, la metamórfica y el magma. Después, fíjate en qué proceso aparece en cada flecha.','ciclo'],
+ ['De cualquier roca a una sedimentaria','En la superficie, la meteorización altera y fragmenta las rocas. El agua y el viento pueden transportar y depositar esos materiales. La litificación convierte los sedimentos en roca sedimentaria.'],
+ ['De una roca a una metamórfica','En el interior de la Tierra, la presión alta, la temperatura alta o ambas pueden transformar una roca mientras sigue sólida. Ese cambio es el metamorfismo.'],
+ ['De una roca a una ígnea','Si una roca se funde, se forma magma. Al enfriarse y solidificarse en el interior, da lugar a una roca ígnea plutónica. Si el material fundido sale y se solidifica en el exterior, da lugar a una roca ígnea volcánica.'],
+ ['Dos recorridos para practicar','Sedimentaria → metamorfismo → metamórfica → fusión → magma → solidificación en el interior → plutónica. Metamórfica expuesta en superficie → meteorización, transporte y depósito → sedimentos → litificación → sedimentaria.']
+ ],recall:'¿Cómo puede llegar una roca metamórfica a convertirse en sedimentaria?',model:'En la superficie se meteoriza. Los materiales se transportan y depositan. La litificación de esos sedimentos forma una roca sedimentaria.'}
 ];
 const GEO_Q=[];
 function geoQ(t,q,correct,wrong,why){GEO_Q.push({id:`geo-${t}-${GEO_Q.length}`,topic:t,group:'geologia',q,correct,options:[correct,...wrong],why:why||correct});}
@@ -94,10 +108,52 @@ geoQ(6,'¿Dónde se forman las rocas filonianas?','En grietas, formando diques o
 geoQ(6,'¿Qué factores originan el metamorfismo?','Elevada presión y altas temperaturas',['Color y brillo','Tallado y pulido']);
 geoQ(6,'¿Qué es la foliación?','Organización en láminas aproximadamente paralelas',['Resistencia al rayado','Solidificación en grietas']);
 for(const [type,rocks] of [['Volcánica',['Obsidiana','Pumita','Basalto']],['Plutónica',['Granito','Sienita','Gabro']],['Metamórfica foliada',['Pizarra','Esquisto','Gneis','Migmatita']],['Metamórfica no foliada',['Mármol','Cuarcita']]])for(const rock of rocks)geoQ(6,`¿Cómo se clasifica ${rock.toLowerCase()} en la fotografía?`,type,['Volcánica','Plutónica','Metamórfica foliada','Metamórfica no foliada'].filter(x=>x!==type));
+geoQ(7,'¿Qué agentes pueden transportar y depositar los sedimentos?','El agua y el viento',['La presión y el calor del interior','Los cristales que unen los granos']);
+geoQ(7,'¿Dónde se acumulan los sedimentos en el esquema?','En una cuenca sedimentaria',['En una cámara magmática','En los cristales de una roca']);
+geoQ(7,'¿Qué dos nombres recibe la transformación de sedimentos en roca?','Diagénesis o litificación',['Fusión o solidificación','Meteorización o metamorfismo']);
+geoQ(7,'¿Qué sucede cuando las capas superiores aplastan los sedimentos de abajo?','Pierden volumen',['Se funden y forman magma','Sus granos aumentan de tamaño'],'El peso de las capas superiores compacta los sedimentos y reduce su volumen.');
+geoQ(7,'¿Qué une los granos durante la cementación?','Cristales que ocupan espacios entre los granos',['El viento que transporta los granos','Los huecos que deja el agua']);
+geoQ(7,'¿Qué orden sigue el esquema de formación de una roca sedimentaria?','Acumulación → compactación → cementación',['Cementación → acumulación → compactación','Compactación → cementación → acumulación']);
+geoQ(7,'¿Podría conservarse una huella como fósil?','Sí, si queda marcada en los sedimentos que se litifican',['Solo si contiene un hueso','Solo si los sedimentos se funden']);
+geoQ(7,'¿Qué tienen en común las rocas sedimentarias detríticas?','Están formadas por fragmentos de otras rocas',['Están formadas solo por sales minerales','Se forman al solidificarse el magma']);
+geoQ(7,'¿Qué roca se reconoce por sus fragmentos de más de 2 mm?','Conglomerado',['Arenisca','Arcilla']);
+geoQ(7,'¿Qué roca detrítica está formada por granos de arena?','Arenisca',['Conglomerado','Arcilla']);
+geoQ(7,'¿En cuál de estos ejemplos se distinguen las partículas al microscopio?','Arcilla',['Conglomerado','Arenisca']);
+geoQ(7,'¿Qué tres ejemplos aparecen en la fila de rocas no detríticas?','Caliza, yeso y carbón',['Conglomerado, arenisca y arcilla','Caliza, conglomerado y arenisca']);
+geoQ(7,'¿Qué origen pueden tener los sedimentos de una roca no detrítica?','Esqueletos marinos, sales minerales o restos orgánicos',['Solo granos de arena','Solo fragmentos de otras rocas']);
+geoQ(7,'Una capa de 2,5 cm pierde el 90 % de su espesor al compactarse. ¿Cuánto queda?','0,25 cm',['2,25 cm','2,40 cm'],'Queda el 10 % de 2,5 cm. Divide entre 10 y obtendrás 0,25 cm.');
+geoQ(8,'¿Qué describe el ciclo de las rocas?','Los procesos por los que una roca puede transformarse en otra',['Los tamaños de los granos de arena','La clasificación de los minerales por dureza']);
+geoQ(8,'¿Qué proceso altera y fragmenta una roca expuesta en la superficie?','Meteorización',['Cementación','Metamorfismo']);
+geoQ(8,'En el esquema, ¿qué proceso une los sedimentos con la roca sedimentaria?','Litificación',['Fusión','Metamorfismo']);
+geoQ(8,'¿Qué condiciones pueden producir metamorfismo?','Alta presión, alta temperatura o ambas, sin fundir la roca',['Fusión completa y enfriamiento','Transporte y depósito por agua o viento']);
+geoQ(8,'¿Tiene que ser sedimentaria la roca de partida para que ocurra metamorfismo?','No. Una roca ígnea también puede sufrir metamorfismo',['Sí. Todas las metamórficas empiezan como sedimentos','Sí. Una roca ígnea solo puede fundirse']);
+geoQ(8,'¿Qué se forma cuando una roca se funde?','Magma',['Sedimentos compactados','Una roca metamórfica']);
+geoQ(8,'¿Qué roca se forma cuando el magma se solidifica en el interior?','Ígnea plutónica',['Ígnea volcánica','Sedimentaria']);
+geoQ(8,'¿Qué roca se forma si el material fundido se solidifica en el exterior?','Ígnea volcánica',['Ígnea plutónica','Metamórfica']);
+geoQ(8,'Una roca sedimentaria sufre metamorfismo. ¿Cómo podría terminar siendo plutónica?','Se funde y el magma se solidifica en el interior',['Se compacta y los granos se cementan','Se funde y el material se solidifica en el exterior']);
+geoQ(8,'¿Qué recorrido puede convertir una roca metamórfica en sedimentaria?','Meteorización, transporte, depósito y litificación',['Fusión y solidificación en el interior','Aumento de presión y temperatura sin fusión']);
+geoQ(8,'¿Qué distingue el metamorfismo de la fusión?','Durante el metamorfismo la roca sigue sólida',['Durante el metamorfismo la roca siempre se vuelve magma','Durante la fusión la roca se convierte en sedimentos']);
+geoQ(8,'Si en el recorrido aparece magma antes de una roca ígnea, ¿qué proceso ocurre entre ambos?','Solidificación',['Meteorización','Litificación']);
+
+const GEO_FIGURES = {
+ litificacion: ['Tres etapas de la litificación: acumulación, compactación y cementación.', 'Del sedimento suelto a la roca sedimentaria.'],
+ detriticas: ['Muestras de conglomerado, arenisca y arcilla, de izquierda a derecha.', 'Conglomerado · Arenisca · Arcilla'],
+ 'no-detriticas': ['Muestras de caliza, yeso y carbón, de izquierda a derecha.', 'Caliza · Yeso · Carbón'],
+ ciclo: ['Esquema del ciclo de las rocas con sedimentos, rocas sedimentarias, metamórficas, ígneas y magma.', 'Las flechas conectan los materiales y los procesos que los transforman.']
+};
+const GEO_CHALLENGE_SIZE = GEO_TOPICS.length * 2;
+
+function geoFigure(key){
+ if(!key)return '';
+ const [alt,caption]=GEO_FIGURES[key];
+ const src=`rocas/${key}.jpg`;
+ return `<figure class="geo-figure"><a href="${src}" target="_blank" rel="noopener" aria-label="Ampliar en otra pestaña. ${esc(alt)}"><img src="${src}" alt="${esc(alt)}"></a><figcaption>${esc(caption)} · Pulsa la imagen para ampliarla.</figcaption></figure>`;
+}
+
 function geologyPage(){
  tab ||= 'teoria';
  const s=stats('geologia');
- $('#main').innerHTML=`<div class="page-head"><div class="eyebrow">TEMA 2 / LA GEOSFERA</div><h1>La Tierra por dentro.<br>Minerales y rocas.</h1><p class="lead muted">Estudia en pasos cortos y comprueba lo que recuerdas.</p></div><div class="note">${s.right} aciertos de ${s.attempts} intentos · ${s.review} preguntas para repasar. Cada acierto suma 5 puntos a tu cuaderno.</div>`+tabs([['teoria','1 · Estudiar'],['practica','2 · Practicar por apartado'],['reto-geo','3 · Reto de 14 preguntas'],['repaso-geo','4 · Repasar mis fallos']])+`<div id="geo-zone"></div>`;
+ $('#main').innerHTML=`<div class="page-head"><div class="eyebrow">TEMA 2 / LA GEOSFERA</div><h1>La Tierra por dentro.<br>Minerales y rocas.</h1><p class="lead muted">Estudia en pasos cortos y comprueba lo que recuerdas.</p></div><div class="note">${s.right} aciertos de ${s.attempts} intentos · ${s.review} preguntas para repasar. Cada acierto suma 5 puntos a tu cuaderno.</div>`+tabs([['teoria','1 · Estudiar'],['practica','2 · Practicar por apartado'],['reto-geo',`3 · Reto de ${GEO_CHALLENGE_SIZE} preguntas`],['repaso-geo','4 · Repasar mis fallos']])+`<div id="geo-zone"></div>`;
  if(tab==='teoria'){
  $('#geo-zone').innerHTML=`<div class="cards">${GEO_TOPICS.map((t,i)=>`<article class="card"><span class="card-number">${t.icon} ${i+1} /</span><h3>${esc(t.title)}</h3><p>${esc(t.intro)}</p><button data-geo-topic="${i}">Estudiar →</button></article>`).join('')}</div><div id="geo-lesson" class="spaced"></div>`;
  $$('[data-geo-topic]').forEach(b=>b.onclick=()=>geoLesson(+b.dataset.geoTopic));geoLesson(0,false);
@@ -105,7 +161,7 @@ function geologyPage(){
  $('#geo-zone').innerHTML=`<div class="panel"><label for="geo-select">Elige qué quieres practicar</label><select id="geo-select">${GEO_TOPICS.map((t,i)=>`<option value="${i}">${i+1} · ${esc(t.title)}</option>`).join('')}</select><button class="primary spaced" id="geo-start">Comenzar</button><p class="tiny">Hasta 8 preguntas. Cambian la selección y el orden de las respuestas.</p></div><div id="geo-quiz"></div>`;
  $('#geo-start').onclick=()=>startQuiz(GEO_Q.filter(q=>q.topic===+$('#geo-select').value),'#geo-quiz',8);
  }else if(tab==='reto-geo'){
- $('#geo-zone').innerHTML='<div class="panel"><h2>Un poco de cada apartado</h2><p>14 preguntas: dos de cada bloque. Al terminar verás tus aciertos y podrás volver a intentarlo.</p><button class="primary" id="geo-challenge">Comenzar el reto</button></div><div id="geo-quiz"></div>';
+ $('#geo-zone').innerHTML=`<div class="panel"><h2>Un poco de cada apartado</h2><p>${GEO_CHALLENGE_SIZE} preguntas, dos de cada bloque. Al terminar verás tus aciertos y podrás volver a intentarlo.</p><button class="primary" id="geo-challenge">Comenzar el reto</button></div><div id="geo-quiz"></div>`;
  $('#geo-challenge').onclick=()=>geoChallenge();
  }else{
  const pool=GEO_Q.filter(q=>state.records[q.id]?.last===false);
@@ -113,5 +169,5 @@ function geologyPage(){
  if(pool.length)startQuiz(pool,'#geo-quiz',10);
  }
 }
-function geoLesson(i,reveal=true){const t=GEO_TOPICS[i];$('#geo-lesson').innerHTML=`<section class="panel" tabindex="-1" id="geo-lesson-content"><div class="eyebrow">APARTADO ${i+1} DE 7 · FOTO ${t.source}</div><h2>${esc(t.title)}</h2><p class="lead">${esc(t.intro)}</p>${t.cards.map(([h,p])=>`<div class="note spaced"><h3>${esc(h)}</h3><p>${esc(p)}</p></div>`).join('')}${i===3?`<ol class="geo-mohs">${GEO_MOHS.map(m=>`<li>${esc(m)}</li>`).join('')}</ol>`:''}<details class="spaced"><summary>Sin mirar: ${esc(t.recall)}</summary><p class="spaced">${esc(t.model)}</p></details><div class="row spaced"><button id="geo-prev" ${i===0?'disabled':''}>← Anterior</button><button id="geo-lesson-practice" class="primary">Practicar este apartado</button><button id="geo-next" ${i===6?'disabled':''}>Siguiente →</button></div></section><div id="geo-quiz"></div>`;$('#geo-prev').onclick=()=>geoLesson(i-1);$('#geo-next').onclick=()=>geoLesson(i+1);$('#geo-lesson-practice').onclick=()=>{startQuiz(GEO_Q.filter(q=>q.topic===i),'#geo-quiz',8);$('#geo-quiz').scrollIntoView({block:'start'});};$$('[data-geo-topic]').forEach(b=>{const selected=+b.dataset.geoTopic===i;b.setAttribute('aria-pressed',String(selected));b.classList.toggle('primary',selected);});if(reveal){$('#geo-lesson-content').focus({preventScroll:true});$('#geo-lesson').scrollIntoView({block:'start',behavior:'instant'});}}
-function geoChallenge(){const qs=shuffle(GEO_TOPICS.flatMap((_,i)=>shuffle(GEO_Q.filter(q=>q.topic===i)).slice(0,2)));startQuiz(qs,'#geo-quiz',14);session.repeat=geoChallenge;}
+function geoLesson(i,reveal=true){const t=GEO_TOPICS[i];$('#geo-lesson').innerHTML=`<section class="panel" tabindex="-1" id="geo-lesson-content"><div class="eyebrow">APARTADO ${i+1} DE ${GEO_TOPICS.length} · FOTO ${t.source}</div><h2>${esc(t.title)}</h2><p class="lead">${esc(t.intro)}</p>${t.cards.map(([h,p,figure])=>`<div class="note spaced"><h3>${esc(h)}</h3><p>${esc(p)}</p>${geoFigure(figure)}</div>`).join('')}${i===3?`<ol class="geo-mohs">${GEO_MOHS.map(m=>`<li>${esc(m)}</li>`).join('')}</ol>`:''}<details class="spaced"><summary>Sin mirar: ${esc(t.recall)}</summary><p class="spaced">${esc(t.model)}</p></details><div class="row spaced"><button id="geo-prev" ${i===0?'disabled':''}>← Anterior</button><button id="geo-lesson-practice" class="primary">Practicar este apartado</button><button id="geo-next" ${i===GEO_TOPICS.length-1?'disabled':''}>Siguiente →</button></div></section><div id="geo-quiz"></div>`;$('#geo-prev').onclick=()=>geoLesson(i-1);$('#geo-next').onclick=()=>geoLesson(i+1);$('#geo-lesson-practice').onclick=()=>{startQuiz(GEO_Q.filter(q=>q.topic===i),'#geo-quiz',8);$('#geo-quiz').scrollIntoView({block:'start'});};$$('[data-geo-topic]').forEach(b=>{const selected=+b.dataset.geoTopic===i;b.setAttribute('aria-pressed',String(selected));b.classList.toggle('primary',selected);});if(reveal){$('#geo-lesson-content').focus({preventScroll:true});$('#geo-lesson').scrollIntoView({block:'start',behavior:'instant'});}}
+function geoChallenge(){const qs=shuffle(GEO_TOPICS.flatMap((_,i)=>shuffle(GEO_Q.filter(q=>q.topic===i)).slice(0,2)));startQuiz(qs,'#geo-quiz',GEO_CHALLENGE_SIZE);session.repeat=geoChallenge;}

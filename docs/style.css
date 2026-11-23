@@ -7,3 +7,20 @@
 .factor-intro{display:grid;grid-template-columns:1.1fr .9fr;gap:25px;align-items:center}.quantity-stage{text-align:center;border-radius:20px;background:#edf3e7;padding:20px}.quantity-stage svg{width:100%;max-width:320px;max-height:250px}.quantity-label{border:1px solid #c4d8b1;border-radius:16px;background:white;padding:15px 25px;display:inline-flex;flex-direction:column;min-width:150px}.quantity-label strong{font:38px Georgia}.quantity-label span{font-size:12px;color:var(--muted)}.label-swap{animation:labelSwap .35s ease-out}.equivalence-big{display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap;font:clamp(26px,4vw,40px)/1.5 Georgia;margin:24px 0}.unit-start{color:#174f85;background:#e5f0fc;border-radius:6px;padding:2px 5px;white-space:nowrap}.unit-end{color:#75438f;background:#f1e8f7;border-radius:6px;padding:2px 5px;white-space:nowrap}.factor-equation{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:12px;font:clamp(23px,3.5vw,34px)/1.7 Georgia;margin:25px 0;padding:20px 12px;border-radius:16px;background:#f2f5e9}.factor-equation .fraction{font-size:clamp(21px,3vw,29px)}.factor-equation .fraction>span{padding:8px 0}.unit-cross{position:relative;display:inline-block}.unit-cross:after{content:'';position:absolute;left:0;top:50%;height:3px;width:100%;background:#b35b36;transform:rotate(-14deg);animation:unitStrike .6s ease-out;transform-origin:left center}.factor-progress{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;list-style:none;padding:0;margin:25px 0}.factor-progress li{padding:10px 14px;border:1px solid var(--line);border-radius:12px;background:#f4f5ef;font-weight:bold;font-size:18px;color:#718075}.factor-progress li span{display:block;font-size:12px;font-weight:normal}.factor-progress li.reached{background:#e4efcd;color:var(--ink)}.factor-progress li[aria-current]{border:2px solid #52714b;background:#d8eab5}.factor-step-box{padding:25px;border:1px solid var(--line);border-radius:18px;animation:labelSwap .3s ease-out}.factor-mini-picture{max-width:200px;margin:auto}.factor-mini-picture svg{width:100%;height:140px}.factor-choices{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin-top:20px}.factor-choices button{min-height:130px}.factor-choices .fraction{font-size:27px}.factor-choices .fraction>span{padding:7px 0}@keyframes labelSwap{from{opacity:.35;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}@keyframes unitStrike{from{transform:rotate(-14deg) scaleX(0)}to{transform:rotate(-14deg) scaleX(1)}}@media(max-width:700px){.factor-intro{grid-template-columns:1fr}.quantity-stage svg{max-height:190px}.factor-step-box{padding:18px}.factor-equation{padding:15px 8px;gap:8px}.factor-progress{grid-template-columns:repeat(2,1fr)}.factor-choices .fraction{font-size:22px}}@media(prefers-reduced-motion:reduce){.label-swap,.factor-step-box,.unit-cross:after{animation:none!important}}
 
 .geo-mohs{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:8px;padding-left:30px;margin-top:24px}.geo-mohs li{background:var(--lime);padding:10px;border-radius:10px}#geo-lesson,#geo-quiz{scroll-margin-top:20px}
+
+.geo-figure {
+  margin: 1rem 0 0;
+}
+.geo-figure img {
+  display: block;
+  width: 100%;
+  max-width: 740px;
+  height: auto;
+  border-radius: .65rem;
+}
+.geo-figure img[src$="/litificacion.jpg"] {
+  max-width: 290px;
+}
+.geo-figure figcaption {
+  margin-top: .5rem;
+}
